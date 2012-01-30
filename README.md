@@ -30,7 +30,7 @@ updates to it's node's logfiles. A harvester is configured with a simple JSON co
 		"host" : "http://example.com",
 		"port" : "1234"
 	},
-	"log_files" : [
+	"watch" : [
 		"/var/log/apache2/*",
 		"/var/log/alonso/harvester.log"
 	]
