@@ -1,6 +1,6 @@
 # Alonso
 
-Alonso quickly and quietly pass along your local log files to a central server for long term storage and indexing. It is designed to collect logs from all your different operating environments (development through to production) so you can have a context for where events have -- and are currently -- taken place. This probably isn't a one size fits all solution, I'm developing it selfishly for internal use.
+Alonso quickly and quietly pass along your local log files to a central server for long term storage and indexing. It is designed to collect logs from all your different operating environments (development through to production) so you can have a context for where events have — and are currently — taken place. This probably isn't a one size fits all solution, I'm developing it selfishly for internal use.
 
 ## Design
 
