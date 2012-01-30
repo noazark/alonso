@@ -12,5 +12,5 @@ Alonso quickly and quietly pass along your local log files to a central server f
 
 Many of the core ideas are taken directly from similar projects that didn't fit our original needs. So, if you're looking for similar solutions, please check out:
 
-[Log.io](https://github.com/NarrativeScience/Log.io)
-[Hummingbird](https://github.com/mnutt/hummingbird)
+* [Log.io](https://github.com/NarrativeScience/Log.io)
+* [Hummingbird](https://github.com/mnutt/hummingbird)
