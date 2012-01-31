@@ -18,7 +18,8 @@ have fun.
 ### Harvester
 
 Each remote node has a running instance of a harvester which will broadcast
-updates to it's node's logfiles. A harvester is configured with a simple JSON conf file.
+events to it's node's logfiles. A harvester is configured with a simple JSON
+conf file.
 
 #### Example
 
@@ -37,7 +38,13 @@ updates to it's node's logfiles. A harvester is configured with a simple JSON co
 }
 ```
 
+The harvester doesn't persist any of the events locally, obviously it doesn't
+need to do that. It does however provide a web interface which shows the
+current configuration and a realtime view of all local events.
+
 ### Server
+
+
 
 ## References
 
