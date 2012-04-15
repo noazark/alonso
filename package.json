@@ -10,7 +10,9 @@
   "engines": {
     "node": "~0.6.8"
   },
-  "dependencies": {},
+  "dependencies": {
+    "hook.io": "0.8.9"
+  },
   "devDependencies": {},
   "optionalDependencies": {}
 }
