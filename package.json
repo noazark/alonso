@@ -2,7 +2,7 @@
   "author": "Noah H. Smith <nsmith@rendergardenmedia.com> (http://rendergardenmedia.com)",
   "name": "Alonso",
   "description": "Distributed log file aggregation, with persistence",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/noazark/Alonso.git"
