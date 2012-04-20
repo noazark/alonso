@@ -7,16 +7,15 @@
     "type": "git",
     "url": "git://github.com/noazark/Alonso.git"
   },
+  "main": "./lib/alonso",
   "engines": {
     "node": "~0.6.8"
   },
-  "bin": {
-    "harvester": "./bin/harvester"
-  },
   "dependencies": {
     "hook.io": "0.8.9",
-    "mongodb": "0.9.9-8",
-    "redis": "0.7.1"
+    "alonso-harvester": "0.0.0",
+    "alonso-follower": "0.0.0",
+    "alonso-counter": "0.0.0"
   },
   "devDependencies": {},
   "optionalDependencies": {}
