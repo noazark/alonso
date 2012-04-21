@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "hook.io": "0.8.9",
-    "alonso-harvester": "0.0.0",
-    "alonso-follower": "0.0.0",
-    "alonso-counter": "0.0.0"
+    "alonso-harvester": "0.1.0",
+    "alonso-follower": "0.1.0",
+    "alonso-counter": "0.1.0"
   },
   "devDependencies": {},
   "optionalDependencies": {}
