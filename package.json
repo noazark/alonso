@@ -1,22 +1,15 @@
 {
-  "author": "Noah H. Smith <nsmith@rendergardenmedia.com> (http://rendergardenmedia.com)",
   "name": "Alonso",
-  "description": "Distributed log file aggregation, with persistence",
+  "description": "Log file aggregate, Java not included",
   "version": "0.1.0",
+  "author": "Noah H. Smith <noah@batteredoats.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/noazark/Alonso.git"
+    "url": "git://github.com/noazark/alonso.git"
   },
-  "main": "./lib/alonso",
   "engines": {
-    "node": "~0.6.8"
+    "node": "0.10.x"
   },
   "dependencies": {
-    "hook.io": "0.8.9",
-    "alonso-harvester": "0.1.0",
-    "alonso-follower": "0.1.0",
-    "alonso-counter": "0.1.0"
-  },
-  "devDependencies": {},
-  "optionalDependencies": {}
+  }
 }
