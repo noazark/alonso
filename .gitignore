@@ -1,3 +1,4 @@
 *.sublime-workspace
 config.json
 node_modules/
+tmp/
