@@ -11,7 +11,8 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "elasticsearch": "~1.5.9"
   },
   "devDependencies": {
     "fast-stats": "0.0.2"
