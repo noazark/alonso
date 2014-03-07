@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "async": "~0.2.10",
-    "elasticsearch": "~1.5.9"
+    "elasticsearch": "~1.5.9",
+    "forever-monitor": "^1.2.3"
   },
   "devDependencies": {
     "fast-stats": "0.0.2"
