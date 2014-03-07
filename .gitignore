@@ -1,4 +1,6 @@
 *.sublime-workspace
 config.json
-node_modules/
 tmp/
+
+# devDepndencies
+node_modules/fast-stats
