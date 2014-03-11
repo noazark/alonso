@@ -1,56 +1,34 @@
 # Alonso
 
-Alonso quickly and quietly pass along your local log files to a central server
-for long term storage and indexing. It is designed to collect logs from all
-your different operating environments (development through to production) so
-you can have a context for where events have — and are currently — taken
-place. This probably isn't a one size fits all solution, I'm developing it
-selfishly for internal use.
+I read logs, I write to [Elasticsearch][0], I am everything you want to be (in a
+log daemon).
 
-## *Alpha Warning*
+## Install
 
-Yep, this is an early version, use with caution. At this *very* moment,
-nothing works. Eventually I'll try and support a list of features, until then,
-have fun.
+`npm install --global alonso`
 
-## Design
+## Config
 
-### Harvester
+* `ELASTICSEARCH_HOSTS` - An comma separated list of Elasticsearch nodes, e.g. `localhost:9200,192.168.0.1:9201`
+* `LOGS` - A comma separated list of files (they don't have to exist) to watch, e.g. `/var/log/syslog,/var/log/mail.log`
 
-Each remote node has a running instance of a harvester which will broadcast
-events to it's node's logfiles. A harvester is configured with a simple JSON
-conf file.
+## Run
 
-#### Example
-
-```json
-{
-	"name" : "My Harvester",
-	"description" : "How much do I love thee? Let me count the ways."
-	"remote" : {
-		"host" : "http://example.com",
-		"port" : "1234"
-	},
-	"watch" : [
-		"/var/log/apache2/*",
-		"/var/log/alonso/harvester.log"
-	]
-}
+```
+> alonso /var/log/mail.log # ships logs to local ES node
 ```
 
-The harvester doesn't persist any of the events locally, obviously it doesn't
-need to do that. It does however provide a web interface which shows the
-current configuration and a realtime view of all local events.
+## Details
 
-### Server
+Alonso is a simple node process which watches logs and ships them to
+elasticsearch. You can get a glimpse the moving pieces pretty easily by taking
+a look at `index.js` and `bin/alonso` (spoiler, there's a cli version too!). But
+if you're just curious, here's the run-down:
 
+> Alonso spawns a process (by way of  [forever-monitor][1]) for each log file
+> you provide it. Every time it sees a change in that file it reads from the
+> last byte to the end and inserts each line (`\n` delimited) to the first
+> available ES node.
 
-
-## References
-
-Many of the core ideas are taken directly from similar projects that didn't
-fit our original needs. So, if you're looking for similar solutions, please
-check out:
-
-* [Log.io](https://github.com/NarrativeScience/Log.io)
-* [Hummingbird](https://github.com/mnutt/hummingbird)
+[0]: http://www.elasticsearch.com/
+[1]: https://github.com/nodejitsu/forever-monitor

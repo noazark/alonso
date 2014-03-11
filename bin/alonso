@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var path = require('path')
+var ship = require('../lib/ship')
+var watch = require('../lib/watch')
+
+var elasticsearchHosts, logpath, shipper, watcher
+
+logPath = process.argv[2]
+
+if (process.env.ELASTICSEARCH_HOSTS) {
+	elasticsearchHosts = process.env.ELASTICSEARCH_HOSTS.split(',')
+} else {
+	elasticsearchHosts = ['localhost:9200']
+}
+
+shipper = new ship({
+	hosts: elasticsearchHosts,
+	sniffOnStart: true,
+	apiVersion: "1.0",
+})
+
+watcher = new watch(logPath)
+
+watcher.on('error', function () {
+	process.exit(1)
+})
+
+watcher.on('data', function (line) {
+	shipper.add(line)
+})
+
