@@ -3,6 +3,8 @@
 I read logs, I write to [Elasticsearch][0], I am everything you want to be (in a
 log daemon).
 
+[![Build Status](https://travis-ci.org/noazark/alonso.svg?branch=fix-watch-rotated)](https://travis-ci.org/noazark/alonso)
+
 ## Install
 
 `npm install --global alonso`
