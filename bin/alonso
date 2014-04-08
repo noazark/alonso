@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var exitPrompt = require('../lib/exit-prompt')
+var log = require('../lib/log')
 var path = require('path')
 var ship = require('../lib/ship')
 var watch = require('../lib/watch')
@@ -14,6 +16,8 @@ if (process.env.ELASTICSEARCH_HOSTS) {
 	elasticsearchHosts = ['localhost:9200']
 }
 
+log.info({event: 'started', target: logPath})
+
 shipper = new ship({
 	hosts: elasticsearchHosts,
 	sniffOnStart: true,
@@ -22,7 +26,8 @@ shipper = new ship({
 
 watcher = new watch(logPath)
 
-watcher.on('error', function () {
+watcher.on('error', function (err) {
+	log.error(err)
 	process.exit(1)
 })
 
@@ -30,3 +35,7 @@ watcher.on('data', function (line) {
 	shipper.add(line)
 })
 
+exitPrompt(function (err) {
+	if (err) log.error(err)
+	log.info({event: 'finished', target: logPath})
+})
