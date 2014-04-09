@@ -4,3 +4,4 @@ tmp/
 
 # devDepndencies
 node_modules/fast-stats
+node_modules/**/*mocha

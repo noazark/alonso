@@ -3,6 +3,9 @@
   "description": "Log file aggregate, Java not included",
   "version": "0.1.0",
   "author": "Noah H. Smith <noah@batteredoats.com>",
+  "scripts": {
+    "test": "sh ./bin/test"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/noazark/alonso.git"
@@ -16,6 +19,7 @@
     "forever-monitor": "^1.2.3"
   },
   "devDependencies": {
-    "fast-stats": "0.0.2"
+    "fast-stats": "0.0.2",
+    "mocha": "^1.18.2"
   }
 }
