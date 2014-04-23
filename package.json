@@ -16,7 +16,8 @@
   "dependencies": {
     "async": "~0.2.10",
     "elasticsearch": "~1.5.9",
-    "forever-monitor": "^1.2.3"
+    "forever-monitor": "^1.2.3",
+    "bunyan": "^0.22.2"
   },
   "devDependencies": {
     "fast-stats": "0.0.2",
