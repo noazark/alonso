@@ -24,7 +24,7 @@ shipper = new ship({
 	apiVersion: "1.0",
 })
 
-watcher = new watch(logPath)
+watcher = new watch(logPath, 250)
 
 watcher.on('error', function (err) {
 	log.error(err)

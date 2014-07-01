@@ -4,6 +4,5 @@ export NODE_ENV=test
 
 echo "Running Full Test Suite" && \
 mocha \
-	--recursive \
 	--timeout 10000 \
 	-- ./tests
