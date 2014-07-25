@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 var exitPrompt = require('../lib/exit-prompt')
+var elasticsearchLogger = require('../lib/elasticsearch-logger')
 var log = require('../lib/log')
 var path = require('path')
-var ship = require('../lib/ship')
 var watch = require('../lib/watch')
+var bulk = require('../lib/bulk')
+var convert = require('../lib/convert')
+var upload = require('../lib/elasticsearch-bulk-upload')
 
 var elasticsearchHosts, logpath, shipper, watcher
 
@@ -18,11 +21,22 @@ if (process.env.ELASTICSEARCH_HOSTS) {
 
 log.info({event: 'started', target: logPath})
 
-shipper = new ship({
-	hosts: elasticsearchHosts,
-	sniffOnStart: true,
-	apiVersion: "1.0",
-})
+shipper = convert()
+
+shipper
+	.pipe(bulk({
+		limit: 200,
+		debounce: 10000,
+	}))
+	.pipe(upload({
+		elasticsearch: {
+			hosts: elasticsearchHosts,
+			sniffOnStart: true,
+			apiVersion: "1.0",
+			log: elasticsearchLogger,
+		},
+		retries: 5
+	}))
 
 watcher = new watch(logPath, 250)
 
@@ -32,7 +46,7 @@ watcher.on('error', function (err) {
 })
 
 watcher.on('data', function (line) {
-	shipper.add(line)
+	shipper.write(line)
 })
 
 exitPrompt(function (err) {
